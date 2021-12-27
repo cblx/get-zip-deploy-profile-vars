@@ -1,0 +1,13 @@
+name: 'Hello World'
+description: 'Greet someone and record the time'
+inputs:
+  publishProfile:
+    description: the publish profile content
+    required: true
+    default: ''
+# outputs: Maybe use this to set variables to the step besides env variables
+#   time: # id of output
+#     description: 'The time we greeted you'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

@@ -1,0 +1,25 @@
+{
+  "name": "get-zip-deploy-profile-vars",
+  "version": "1.0.0",
+  "description": "Expose zip deploy vars from an Azure App Service publish provile",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cblx/get-zip-deploy-profile-vars.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cblx/get-zip-deploy-profile-vars/issues"
+  },
+  "homepage": "https://github.com/cblx/get-zip-deploy-profile-vars#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0",
+    "xml-js": "^1.6.11"
+  }
+}
