@@ -11,9 +11,12 @@ try {
     core.setSecret(usr);
     core.setSecret(pwd);
     core.setSecret(url);
-    core.exportVariable('ZIP_DEPLOY_USR', usr);
-    core.exportVariable('ZIP_DEPLOY_PWD', pwd);
-    core.exportVariable('ZIP_DEPLOY_URL', url);
+    core.setOutput('usr', usr);
+    core.setOutput('pwd', pwd);
+    core.setOutput('url', url);
+    // core.exportVariable('ZIP_DEPLOY_USR', usr);
+    // core.exportVariable('ZIP_DEPLOY_PWD', pwd);
+    // core.exportVariable('ZIP_DEPLOY_URL', url);
 } catch (error) {
     core.setFailed(error.message);
 }
