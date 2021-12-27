@@ -1,9 +1,8 @@
 const core = require('@actions/core');
-const github = require('@actions/github');
 const parser = require('xml-js');
 
 try {
-    const profile = core.getInput('profile');
+    const profile = core.getInput('publishProfile');
     const jsonData = JSON.parse(parser.xml2json(profile, { compact: true, spaces: 2 }));
     const zipProfile = jsonData.publishData.publishProfile.find(p => p._attributes.publishMethod == 'ZipDeploy');
     core.exportVariable('ZIP_DEPLOY_USR', zipProfile._attributes.userName);
