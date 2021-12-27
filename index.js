@@ -8,12 +8,12 @@ try {
     const usr = zipProfile._attributes.userName;
     const pwd = zipProfile._attributes.userPWD;
     const url = `https://${zipProfile._attributes.publishUrl}/api/zipdeploy`;
-    core.exportVariable('ZIP_DEPLOY_USR', usr);
-    core.exportVariable('ZIP_DEPLOY_PWD', pwd);
-    core.exportVariable('ZIP_DEPLOY_URL', url);
     core.setSecret(usr);
     core.setSecret(pwd);
     core.setSecret(url);
+    core.exportVariable('ZIP_DEPLOY_USR', usr);
+    core.exportVariable('ZIP_DEPLOY_PWD', pwd);
+    core.exportVariable('ZIP_DEPLOY_URL', url);
 } catch (error) {
     core.setFailed(error.message);
 }
