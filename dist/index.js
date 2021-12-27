@@ -4109,14 +4109,20 @@ try {
     const profile = core.getInput('publishProfile');
     const jsonData = JSON.parse(parser.xml2json(profile, { compact: true, spaces: 2 }));
     const zipProfile = jsonData.publishData.publishProfile.find(p => p._attributes.publishMethod == 'ZipDeploy');
-    core.exportVariable('ZIP_DEPLOY_USR', zipProfile._attributes.userName);
-    core.exportVariable('ZIP_DEPLOY_PWD', zipProfile._attributes.userPWD)
-    core.exportVariable('ZIP_DEPLOY_URL', `https://${zipProfile._attributes.publishUrl}/api/zipdeploy`)
-    // core.setOutput('usr', `\\${zipProfile._attributes.userName}`);
-    // core.setOutput('pwd', zipProfile._attributes.userPWD);
-    // core.setOutput('url', `https://${zipProfile._attributes.publishUrl}/api/zipdeploy`);
+    const usr = zipProfile._attributes.userName;
+    const pwd = zipProfile._attributes.userPWD;
+    const url = `https://${zipProfile._attributes.publishUrl}/api/zipdeploy`;
+    core.setSecret(usr);
+    core.setSecret(pwd);
+    core.setSecret(url);
+    core.setOutput('usr', usr);
+    core.setOutput('pwd', pwd);
+    core.setOutput('url', url);
+    core.exportVariable('ZIP_DEPLOY_USR', usr);
+    core.exportVariable('ZIP_DEPLOY_PWD', pwd);
+    core.exportVariable('ZIP_DEPLOY_URL', url);
 } catch (error) {
-  core.setFailed(error.message);
+    core.setFailed(error.message);
 }
 })();
 
