@@ -4,6 +4,7 @@
   "description": "Expose zip deploy vars from an Azure App Service publish provile",
   "main": "index.js",
   "scripts": {
+    "build": "ncc build index.js --license licenses.txt",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,8 +19,8 @@
   },
   "homepage": "https://github.com/cblx/get-zip-deploy-profile-vars#readme",
   "dependencies": {
-    "@actions/core": "^1.6.0",
-    "@actions/github": "^5.0.0",
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1",
     "xml-js": "^1.6.11"
   }
 }
